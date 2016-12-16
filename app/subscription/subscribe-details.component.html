@@ -1,30 +1,30 @@
 <fieldset>
     <div class="pure-control-group">
         <label for="subscriptionType">Subscription Type</label>
-        <select id="subscriptionType" class="pure-input-1-2">
-            <option>I am a new subscriber</option>
-            <option>I want to renew/extend my subscription</option>
-            <option>I want an International subscription</option>
+        <select id="subscriptionType" class="pure-input-1-2" [(ngModel)]="subscriptionType">
+            <option value="new">I am a new subscriber</option>
+            <option value="renew">I want to renew/extend my subscription</option>
+            <option value="international">I want an International subscription</option>
         </select>
     </div>
 
     <div class="pure-control-group">
         <label for="subscriptionPackage">Subscription Package</label>
-        <select id="subscriptionType" class="pure-input-1-2">
-            <option>THREE YEARS MONEY SAVER OFFER (Rs. 5,499)</option>
-            <option>SIX MONTHS MONEY SAVER OFFER (Rs. 999)</option>
-            <option>ONE YEAR ONLY MAGAZINE OFFER (Rs. 1,899)</option>
+        <select id="subscriptionPackage" class="pure-input-1-2" [(ngModel)]="subscriptionPackage">
+            <option value="three_years">THREE YEARS MONEY SAVER OFFER (Rs. 5,499)</option>
+            <option value="half_year">SIX MONTHS MONEY SAVER OFFER (Rs. 999)</option>
+            <option value="one_year">ONE YEAR ONLY MAGAZINE OFFER (Rs. 1,899)</option>
         </select>
     </div>
 
     <div class="pure-control-group">
-        <label for="name">Email</label>
-        <input id="name" type="text" placeholder="Email" class="pure-input-1-2">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Email" class="pure-input-1-2" [(ngModel)]="email">
     </div>
 
     <div class="pure-control-group">
         <label for="subscriptionStart">Start From</label>
-        <select id="startMonth" class="pure-input-1-4">
+        <select id="startMonth" class="pure-input-1-4" [(ngModel)]="subscriptionStartMonth">
             <option value="">Select Month</option>
             <option value="1">January</option>
             <option value="2">February</option>
@@ -39,7 +39,7 @@
             <option value="11">November</option>
             <option value="12">December</option>
         </select>
-        <select id="startYear" class="pure-input-1-4">
+        <select id="startYear" class="pure-input-1-4" [(ngModel)]="subscriptionStartYear">
             <option value="">Select Year</option>
             <option value="2016">2016</option>
             <option value="2015">2015</option>
@@ -50,12 +50,12 @@
     </div>
 
     <div class="pure-control-group">
-        <label for="address">Address</label>
-        <textarea id="address" class="pure-input-1-2" placeholder="Shipping Address"></textarea>
+        <label for="shippingAddress">Address</label>
+        <textarea id="shippingAddress" class="pure-input-1-2" placeholder="Shipping Address" [(ngModel)]="shippingAddress"></textarea>
     </div>
 
     <div class="pure-control-group">
         <label for="subscribeButton"></label>
-        <button id="subscribeButton" type="submit" class="pure-button pure-button-primary">Subscribe</button>
+        <button id="subscribeButton" type="submit" class="pure-button pure-button-primary" (click)="subscribeUser(subscriptionType, subscriptionPackage, email, subscriptionStartMonth, subscriptionStartYear, shippingAddress)">Subscribe</button>
     </div>
 </fieldset>

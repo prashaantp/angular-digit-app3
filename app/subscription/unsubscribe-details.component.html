@@ -1,21 +1,21 @@
 <fieldset>
-    <div class="pure-u-1-1">
-        <p style="text-align: center; color: red;">Incorrect email address: abc@gmail.com</p>
+    <div class="pure-u-1-1" *ngIf="errorMessage">
+        <p style="text-align: center; color: red;">{{errorMessage}}</p>
     </div>
 
     <div class="pure-control-group">
-        <label for="name">Email</label>
-        <input id="name" type="text" placeholder="Email" class="pure-input-1-2">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Email" class="pure-input-1-2" [(ngModel)]="email">
     </div>
 
     <div class="pure-control-group">
         <label for="unsubscribeReason">Reason</label>
-        <textarea id="unsubscribeReason" class="pure-input-1-2" placeholder="I am unhappy with magazine :("></textarea>
+        <textarea id="unsubscribeReason" class="pure-input-1-2" placeholder="I am unhappy with magazine :(" [(ngModel)]="unsubscribeReason"></textarea>
     </div>
 
     <div class="pure-control-group">
         <label for="unsubscribeButton"></label>
-        <button id="unsubscribeButton" type="submit" class="pure-button pure-button-primary">Unsubscribe</button>
+        <button id="unsubscribeButton" type="submit" class="pure-button pure-button-primary" (click)="unsubscribeUser(email, unsubscribeReason)">Unsubscribe</button>
     </div>
 
 </fieldset>

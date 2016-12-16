@@ -20,10 +20,18 @@ export class SubscriptionService {
   }
 
   public findByEmail(email: string): Promise<Subscription[]> {
-    return this.http.get(`${this.subscriptionsUrl}?email=${email}`)
+    return this.http.get(`${this.subscriptionsUrl}/?email=${email}`)
       .toPromise()
       .then((response: Response) => response.json().data as Subscription[])
-      .catch(this.handleError);
+      .catch((response: any) => {
+        console.log(response);
+
+        if (response && response.status && response.status === 404) {
+          return [] as Subscription[];
+        }
+
+        return this.handleError(response);
+      });
   }
 
   public deleteSubscription(email: string): Promise<Subscription[]> {
@@ -34,9 +42,9 @@ export class SubscriptionService {
   }
 
   public updateSubscription(subscription: Subscription): Promise<Subscription> {
-    return this.http.put(this.subscriptionsUrl, JSON.stringify(subscription), { headers: this.headers })
+    return this.http.put(`${this.subscriptionsUrl}/${subscription.id}`, JSON.stringify(subscription), { headers: this.headers })
       .toPromise()
-      .then((response: Response) => response.json().data as Subscription)
+      .then((response: Response) => subscription)
       .catch(this.handleError);
   }
 

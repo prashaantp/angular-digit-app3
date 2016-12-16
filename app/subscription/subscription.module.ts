@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+
+import { CommonModule } from '@angular/common';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -24,7 +26,7 @@ import { SubscriptionService } from './subscription.service';
         path: '', redirectTo: 'subscribe-details', pathMatch: 'full'
       }
     ]
-  }]), InMemoryWebApiModule.forRoot(InMemoryDataService)],
+  }]), InMemoryWebApiModule.forRoot(InMemoryDataService), FormsModule, CommonModule],
   declarations: [SubscriptionComponent, SubscribeDetailsComponent, UnsubscribeDetailsComponent],
   providers: [SubscriptionService]
 })

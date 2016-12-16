@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { AdminLoginComponent } from './admin-login.component';
 import { AdminViewDetailsComponent } from './admin-view-details.component';
+
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [RouterModule.forChild([{
@@ -12,14 +15,14 @@ import { AdminViewDetailsComponent } from './admin-view-details.component';
       {
         path: 'admin-login', component: AdminLoginComponent
       }, {
-        path: 'admin-view-details', component: AdminViewDetailsComponent
+        path: 'admin-view-details', component: AdminViewDetailsComponent, canLoad: [AuthGuard]
       }, {
-        path: '', redirectTo: 'admin-login', pathMatch: 'full'
+        path: '', redirectTo: 'admin-view-details', pathMatch: 'full'
       }
     ]
-  }])],
+  }]), CommonModule],
   declarations: [AdminComponent, AdminLoginComponent, AdminViewDetailsComponent],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

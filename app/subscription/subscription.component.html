@@ -1,0 +1,14 @@
+<div class="pure-u-1-1 Subscription-page">
+    <form class="pure-form pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="userAction">I want to</label>
+                <select id="userAction" class="pure-input-1-2" (change)="selectedUserAction($event)">
+                    <option value="subscribe-details">Subscribe</option>
+                    <option value="unsubscribe-details">Unsubscribe</option>
+                </select>
+            </div>
+        </fieldset>
+        <router-outlet></router-outlet>
+    </form>
+</div>

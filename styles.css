@@ -1,0 +1,53 @@
+body {
+    height: auto;
+    width: 600px;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    display: block;
+}
+
+p, input, label, select, option, textarea,td,th {
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.main-container {
+    margin: 5px 0;
+}
+
+.page-head h3 {
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+	line-height: 26.4px;
+}
+
+.main-navigation {
+    text-align: center;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px 0;
+    margin: 0 -2px 5px -2px;
+
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+
+.main-navigation.active {
+   background-color: #bce8ff; 
+}
+
+table {
+    width: 100%;
+}

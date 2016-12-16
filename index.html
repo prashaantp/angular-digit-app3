@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>document.write('<base href="' + document.location.origin + '" />');</script>
+    <title>Hello Angular</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      body {color:#369;font-family: Arial,Helvetica,sans-serif;}
+    </style>
+
+    <!-- Polyfills for older browsers -->
+    <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+
+    <script src="https://unpkg.com/zone.js@0.7.2?main=browser"></script>
+    <script src="https://unpkg.com/reflect-metadata@0.1.8"></script>
+    <script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+    <script src="https://cdn.rawgit.com/angular/angular.io/b3c65a9/public/docs/_examples/_boilerplate/systemjs.config.web.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    
+    <div class="pure-g main-container">
+        <div class="pure-u-1-1 page-head">
+            <h3>The Digit Magazine</h3>
+        </div>
+        <digit-app class="pure-u-1-1"><!-- content managed by Angular --></digit-app>
+    </div>
+    
+  </body>
+
+</html>

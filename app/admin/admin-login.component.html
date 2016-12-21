@@ -1,17 +1,20 @@
 <div class="pure-u-1-1 Subscription-page">
-    <form class="pure-form pure-form-aligned">
+    <div class="pure-u-1-1" *ngIf="errorMessage">
+        <p style="text-align: center; color: red;">{{errorMessage}}</p>
+    </div>
+    <form class="pure-form pure-form-aligned" action="#">
         <fieldset>
             <div class="pure-control-group">
                 <label for="name">Username</label>
-                <input id="name" type="text" placeholder="Username">
+                <input id="name" type="text" placeholder="Username" [(ngModel)]="username" name="username">
             </div>
             <div class="pure-control-group">
                 <label for="password">Password</label>
-                <input id="password" type="password" placeholder="Password">
+                <input id="password" type="password" placeholder="Password" [(ngModel)]="password"  name="password">
             </div>
             <div class="pure-control-group">
                 <label for="loginButton"></label>
-                <button id="loginButton" type="submit" class="pure-button pure-button-primary">Login</button>
+                <button id="loginButton" class="pure-button pure-button-primary" (click)="login($event, username, password)">Login</button>
             </div>
         </fieldset>
     </form>

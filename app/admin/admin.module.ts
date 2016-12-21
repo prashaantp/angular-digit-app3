@@ -1,4 +1,5 @@
 import { NgModule, } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
@@ -6,7 +7,7 @@ import { AdminLoginComponent } from './admin-login.component';
 import { AdminViewDetailsComponent } from './admin-view-details.component';
 
 import { AuthGuard } from './auth-guard.service';
-import { AuthService } from './auth.service';
+
 
 @NgModule({
   imports: [RouterModule.forChild([{
@@ -15,14 +16,14 @@ import { AuthService } from './auth.service';
       {
         path: 'admin-login', component: AdminLoginComponent
       }, {
-        path: 'admin-view-details', component: AdminViewDetailsComponent, canLoad: [AuthGuard]
+        path: 'admin-view-details', component: AdminViewDetailsComponent , canActivate: [AuthGuard]
       }, {
         path: '', redirectTo: 'admin-view-details', pathMatch: 'full'
       }
     ]
-  }]), CommonModule],
+  }]), FormsModule, CommonModule],
   declarations: [AdminComponent, AdminLoginComponent, AdminViewDetailsComponent],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthGuard],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

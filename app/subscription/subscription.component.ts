@@ -10,6 +10,6 @@ export class SubscriptionComponent {
   constructor(private router: Router) { }
 
   public selectedUserAction(event: Event) {
-    this.router.navigate([((<HTMLSelectElement>event.srcElement).value)]);
+    this.router.navigate(['subscription', ((<HTMLSelectElement>event.srcElement).value)]);
   }
 }

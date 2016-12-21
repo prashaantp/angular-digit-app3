@@ -37,8 +37,6 @@ export class UnsubscribeDetailsComponent {
     subscription.package = null;
     subscription.feedback = unsubscribeReason;
 
-    console.log('sub id', subscription.id);
-
     this.service.updateSubscription(subscription)
       .then(() => alert(`Subscription canceled for ${subscription.email}`))
       .catch(() => alert(`Subscription cancelation failed for ${subscription.email}`));
